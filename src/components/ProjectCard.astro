@@ -1,0 +1,167 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  demoLink?: string;
+  sourceLink?: string;
+}
+
+const { title, description, image, demoLink, sourceLink } = Astro.props;
+const href = demoLink || sourceLink;
+---
+<div class="project-card">
+  <div class="thumbnail">
+    {image ? (
+      <img src={image} alt={title} />
+    ) : (
+      <div class="placeholder" />
+    )}
+  </div>
+  <div class="content">
+    <h3>
+      <span class="prefix">$ </span><a class="title-link" href={href} target={href?.startsWith('http') ? '_blank' : undefined} rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}>{title}</a>
+    </h3>
+    <p>{description}</p>
+    <div class="links">
+      {sourceLink && (
+        <a href={sourceLink} target="_blank" rel="noopener noreferrer">source</a>
+      )}
+      {sourceLink && demoLink && <span class="separator">/</span>}
+      {demoLink && (
+        <a href={demoLink} target={demoLink.startsWith('http') ? '_blank' : undefined} rel={demoLink.startsWith('http') ? 'noopener noreferrer' : undefined}>demo</a>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .project-card {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    align-items: flex-start;
+  }
+
+  .thumbnail {
+    flex-shrink: 0;
+    width: 96px;
+    height: 96px;
+  }
+
+  .thumbnail img {
+    width: 96px;
+    height: 96px;
+    border-radius: 18px;
+    object-fit: cover;
+    display: block;
+    border: 1px solid #333;
+  }
+
+  .placeholder {
+    width: 96px;
+    height: 96px;
+    border-radius: 18px;
+    background: var(--color-border);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .title-link {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .title-link:hover {
+    color: var(--color-accent);
+  }
+
+  .prefix {
+    color: var(--color-text-muted);
+    user-select: none;
+  }
+
+  p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .links {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+  }
+
+  a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .separator {
+    color: var(--color-text-muted);
+    margin: 0 0.5rem;
+  }
+
+  @media (max-width: 520px) {
+    .project-card {
+      flex-direction: row;
+      gap: 1rem;
+      padding: 1.25rem 0;
+    }
+
+    .thumbnail {
+      width: 56px;
+      height: 56px;
+    }
+
+    .thumbnail img {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+    }
+
+    .placeholder {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+    }
+
+    h3 {
+      font-size: 1rem;
+    }
+
+    .prefix {
+      display: none;
+    }
+
+    p {
+      font-size: 0.8rem;
+      line-height: 1.4;
+    }
+
+    .links {
+      font-size: 0.8rem;
+    }
+  }
+</style>

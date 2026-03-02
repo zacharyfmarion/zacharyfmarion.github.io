@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Monaspace Neon';
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+  src: url('../assets/fonts/MonaspaceNeon-Variable.woff2') format('woff2');
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+:root {
+  --color-bg: #0a0a0a;
+  --color-text: #ededed;
+  --color-text-muted: #888;
+  --color-accent: #5e5ce6;
+  --color-border: #222;
+  --font-mono: 'Monaspace Neon', 'SF Mono', 'Fira Code', monospace;
+  --max-width: 72ch;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+h1,
+h2 {
+  text-transform: uppercase;
+}
+
+p {
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

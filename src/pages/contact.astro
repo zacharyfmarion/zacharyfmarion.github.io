@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Contact">
+  <section class="contact">
+    <h1>Contact</h1>
+    <p>Get in touch.</p>
+
+    <ul class="links">
+      <li>
+        <span class="label">email</span>
+        <a href="mailto:zacharywmarion@gmail.com">zacharywmarion@gmail.com</a>
+      </li>
+      <li>
+        <span class="label">github</span>
+        <a href="https://github.com/zacharymarion" target="_blank" rel="noopener noreferrer">zacharymarion</a>
+      </li>
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .contact {
+    padding: 4rem 0;
+  }
+
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--color-text-muted);
+    margin-bottom: 3rem;
+  }
+
+  .links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .label {
+    color: var(--color-text-muted);
+    display: inline-block;
+    min-width: 8ch;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

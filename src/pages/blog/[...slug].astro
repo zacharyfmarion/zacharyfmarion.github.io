@@ -1,0 +1,140 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Base title={post.data.title} description={post.data.description}>
+  <article class="post">
+    <a class="back-link" href={`${base}/blog`}>&larr; Back to blog</a>
+    <header>
+      <h1>{post.data.title}</h1>
+      <p class="meta">{post.data.date} · {post.data.author}</p>
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Base>
+
+<style>
+  .post {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+    max-width: 72ch;
+  }
+
+  .back-link {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    width: fit-content;
+  }
+
+  .back-link:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+
+  .prose {
+    max-width: 72ch;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.5em;
+    line-height: 1.7;
+  }
+
+  .prose :global(h2),
+  .prose :global(h3) {
+    margin-top: 2.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .prose :global(code) {
+    background: #1a1a1a;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+  .prose :global(pre) {
+    background: #111;
+    padding: 1.5em;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 2em 0;
+  }
+
+  .prose :global(pre code) {
+    background: transparent;
+    padding: 0;
+    font-size: 0.9em;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 2px solid var(--color-accent);
+    padding-left: 1em;
+    color: var(--color-text-muted);
+    margin: 2em 0;
+  }
+
+  .prose :global(img) {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+
+  .prose :global(a) {
+    color: var(--color-accent);
+  }
+
+  .prose :global(a:hover) {
+    text-decoration: underline;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.5em;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: 3em 0;
+  }
+
+  .prose :global(strong) {
+    color: #fff;
+  }
+</style>

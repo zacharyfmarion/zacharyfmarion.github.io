@@ -1,4 +1,4 @@
 node_modules
-.next
 .yarn
-out
+dist
+.astro

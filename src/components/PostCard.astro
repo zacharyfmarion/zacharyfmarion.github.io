@@ -1,0 +1,54 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  slug: string;
+}
+
+const { title, date, slug } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<div class="post-card">
+  <span class="date">{date}</span>
+  <a href={`${base}/blog/${slug}`} class="title">{title}</a>
+</div>
+
+<style>
+  .post-card {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0.25rem 0;
+  }
+
+  .date {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    min-width: 10ch;
+  }
+
+  .title {
+    color: var(--color-text);
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    flex: 1;
+  }
+
+  .title:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 640px) {
+    .post-card {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .date {
+      font-size: 0.75rem;
+    }
+  }
+</style>

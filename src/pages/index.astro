@@ -1,0 +1,149 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+// import PostCard from '../components/PostCard.astro';
+// import { getCollection } from 'astro:content';
+import { projects } from '../data/projects';
+
+// const posts = (await getCollection('blog'))
+  //   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  //   .slice(0, 3)
+  //   .map((post) => ({
+    //     title: post.data.title,
+    //     date: post.data.date,
+    //     slug: post.id,
+  //   }));
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<Base title="Zachary Marion" description="Software Engineer">
+  <section class="hero">
+    <h1>zachary marion</h1>
+    <p class="bio">Software engineer focused on mobile and React Native. I like building things on the side, from iOS apps to creative dev tools.</p>
+  </section>
+
+  <section class="selected-work">
+    <h2>Selected Work</h2>
+    <div class="projects-grid">
+      {projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          image={project.image}
+          demoLink={project.demoLink}
+          sourceLink={project.sourceLink}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Writing section hidden for now
+  <section class="writing">
+    <h2>Writing</h2>
+    <div class="posts-list">
+      {posts.map((post) => (
+        <PostCard
+          title={post.title}
+          date={post.date}
+          slug={post.slug}
+        />
+      ))}
+    </div>
+    <div class="view-all">
+      <a href={`${base}/blog`}>View all posts &rarr;</a>
+    </div>
+  </section>
+  -->
+</Base>
+
+<style>
+  section {
+    margin-bottom: 5rem;
+  }
+
+  .hero {
+    padding: 5rem 0 3.5rem;
+    margin-bottom: 0;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    margin: 0 0 1rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .bio {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    text-wrap: pretty;
+  }
+
+  h2 {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .projects-grid :global(> * + *) {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .posts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .view-all {
+    margin-top: 2rem;
+    font-size: 0.875rem;
+  }
+
+  .view-all a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .view-all a:hover {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 520px) {
+    .hero {
+      padding: 2.5rem 0 2rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    .bio {
+      font-size: 0.875rem;
+    }
+
+    h2 {
+      font-size: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+</style>

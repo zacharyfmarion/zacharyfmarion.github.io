@@ -1,0 +1,67 @@
+---
+import '../styles/global.css';
+
+const { title, description } = Astro.props;
+const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {description ? <meta name="description" content={description} /> : null}
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="shell">
+      <main>
+        <slot />
+      </main>
+
+      <footer>
+        <a href="https://github.com/zacharyfmarion">GitHub</a>
+        <span>© {year}</span>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  .shell {
+    padding: 32px 24px 48px;
+  }
+
+  main {
+    margin: 48px auto 64px;
+    max-width: var(--max-width);
+    width: 100%;
+  }
+
+  footer {
+    align-items: center;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    letter-spacing: 0.08em;
+    padding-top: 16px;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 520px) {
+    .shell {
+      padding: 16px 16px 32px;
+    }
+
+    main {
+      margin: 24px auto 40px;
+    }
+
+    footer {
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+</style>
