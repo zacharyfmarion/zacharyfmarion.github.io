@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 
 export default defineConfig({
-  site: 'https://zac.is-a.dev',
+  site: 'https://zacharyfmarion.github.io',
   integrations: [mdx(), react()],
   output: 'static',
 });
