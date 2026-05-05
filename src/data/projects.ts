@@ -45,7 +45,7 @@ export const projects: Project[] = [
     image: '/images/pixelate.png',
     links: [
       { label: 'source', href: 'https://github.com/zacharyfmarion/pixelate' },
-      { label: 'demo', href: 'https://zacharyfmarion.github.io/pixelate' },
+      { label: 'website', href: 'https://zacharyfmarion.github.io/pixelate' },
     ],
   },
 ];
