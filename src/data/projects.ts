@@ -16,7 +16,7 @@ export const projects: Project[] = [
     description: 'An iOS weather app with a retro pixel art aesthetic. Dynamic scenes change with time and weather, powered by Apple WeatherKit.',
     image: '/images/pixel-forecast.png',
     links: [
-      { label: 'app link', href: 'https://apps.apple.com/us/app/pixel-forecast/id6758243523' },
+      { label: 'app', href: 'https://apps.apple.com/us/app/pixel-forecast/id6758243523' },
     ],
   },
   {
