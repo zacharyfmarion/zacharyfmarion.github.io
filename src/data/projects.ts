@@ -21,6 +21,13 @@ export const projects: Project[] = [
     sourceLink: 'https://github.com/zacharyfmarion/openscad-studio',
   },
   {
+    title: 'Cascade',
+    description: 'A node-based image editor for building reusable processing pipelines on the web and desktop.',
+    image: '/images/cascade.png',
+    demoLink: 'https://cascade-editor.pages.dev',
+    sourceLink: 'https://github.com/zacharyfmarion/cascade',
+  },
+  {
     title: 'Pixelate',
     description: 'A browser-based tool for creating pixel art from images with pixelation, dithering, and color palette effects.',
     image: '/images/pixelate.png',
