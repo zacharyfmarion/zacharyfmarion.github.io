@@ -3,12 +3,14 @@ interface Props {
   title: string;
   description: string;
   image?: string;
-  demoLink?: string;
-  sourceLink?: string;
+  links?: {
+    label: string;
+    href: string;
+  }[];
 }
 
-const { title, description, image, demoLink, sourceLink } = Astro.props;
-const href = demoLink || sourceLink;
+const { title, description, image, links = [] } = Astro.props;
+const href = links[0]?.href;
 ---
 <div class="project-card">
   <div class="thumbnail">
@@ -23,15 +25,16 @@ const href = demoLink || sourceLink;
       <span class="prefix">$ </span><a class="title-link" href={href} target={href?.startsWith('http') ? '_blank' : undefined} rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}>{title}</a>
     </h3>
     <p>{description}</p>
-    <div class="links">
-      {sourceLink && (
-        <a href={sourceLink} target="_blank" rel="noopener noreferrer">source</a>
-      )}
-      {sourceLink && demoLink && <span class="separator">/</span>}
-      {demoLink && (
-        <a href={demoLink} target={demoLink.startsWith('http') ? '_blank' : undefined} rel={demoLink.startsWith('http') ? 'noopener noreferrer' : undefined}>demo</a>
-      )}
-    </div>
+    {links.length > 0 && (
+      <div class="links">
+        {links.map((link, index) => (
+          <>
+            {index > 0 && <span class="separator">/</span>}
+            <a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{link.label}</a>
+          </>
+        ))}
+      </div>
+    )}
   </div>
 </div>
 
