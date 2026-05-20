@@ -40,6 +40,16 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: 'Ori Studio',
+    description: 'An origami design environment for turning tree structures into crease patterns, with web and desktop apps powered by a Rust and WebAssembly TreeMaker engine.',
+    image: '/images/ori-studio.png',
+    links: [
+      { label: 'source', href: 'https://github.com/zacharyfmarion/ori-studio' },
+      { label: 'website', href: 'https://oristudio.pages.dev' },
+      { label: 'download', href: 'https://github.com/zacharyfmarion/ori-studio/releases/latest/download/OriStudio_latest_aarch64.dmg' },
+    ],
+  },
+  {
     title: 'Pixelate',
     description: 'A browser-based tool for creating pixel art from images with pixelation, dithering, and color palette effects.',
     image: '/images/pixelate.png',
