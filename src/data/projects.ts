@@ -24,8 +24,8 @@ export const projects: Project[] = [
     description: 'A web and desktop editor for OpenSCAD with live 3D preview and an AI copilot for generating parametric models.',
     image: '/images/openscad-studio.png',
     links: [
-      { label: 'source', href: 'https://github.com/zacharyfmarion/openscad-studio' },
       { label: 'website', href: 'https://openscad-studio.pages.dev' },
+      { label: 'source', href: 'https://github.com/zacharyfmarion/openscad-studio' },
       { label: 'download', href: 'https://github.com/zacharyfmarion/openscad-studio/releases/latest/download/OpenSCAD.Studio_latest_aarch64.dmg' },
     ],
   },
@@ -34,8 +34,8 @@ export const projects: Project[] = [
     description: 'A node-based image editor for building reusable processing pipelines on the web and desktop.',
     image: '/images/cascade.png',
     links: [
-      { label: 'source', href: 'https://github.com/zacharyfmarion/cascade' },
       { label: 'website', href: 'https://cascade-editor.pages.dev' },
+      { label: 'source', href: 'https://github.com/zacharyfmarion/cascade' },
       { label: 'download', href: 'https://github.com/zacharyfmarion/cascade/releases/latest/download/Cascade_latest_aarch64.dmg' },
     ],
   },
@@ -44,8 +44,8 @@ export const projects: Project[] = [
     description: 'An origami design environment for turning tree structures into crease patterns, with web and desktop apps powered by a Rust and WebAssembly TreeMaker engine.',
     image: '/images/ori-studio.png',
     links: [
-      { label: 'source', href: 'https://github.com/zacharyfmarion/ori-studio' },
       { label: 'website', href: 'https://oristudio.pages.dev' },
+      { label: 'source', href: 'https://github.com/zacharyfmarion/ori-studio' },
       { label: 'download', href: 'https://github.com/zacharyfmarion/ori-studio/releases/latest/download/OriStudio_latest_aarch64.dmg' },
     ],
   },
@@ -54,8 +54,8 @@ export const projects: Project[] = [
     description: 'A browser-based tool for creating pixel art from images with pixelation, dithering, and color palette effects.',
     image: '/images/pixelate.png',
     links: [
-      { label: 'source', href: 'https://github.com/zacharyfmarion/pixelate' },
       { label: 'website', href: 'https://zacharyfmarion.github.io/pixelate' },
+      { label: 'source', href: 'https://github.com/zacharyfmarion/pixelate' },
     ],
   },
 ];
