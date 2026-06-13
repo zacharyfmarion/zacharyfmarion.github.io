@@ -50,6 +50,15 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: 'Pitch Coach',
+    description: 'A privacy-first vocal practice app with guided exercises, browser-local pitch detection, note scoring, and experimental song practice.',
+    image: '/images/pitch-coach.png',
+    links: [
+      { label: 'website', href: 'https://pitch-coach.pages.dev' },
+      { label: 'source', href: 'https://github.com/zacharyfmarion/pitch-coach' },
+    ],
+  },
+  {
     title: 'Pixelate',
     description: 'A browser-based tool for creating pixel art from images with pixelation, dithering, and color palette effects.',
     image: '/images/pixelate.png',
